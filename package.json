@@ -1,0 +1,16 @@
+{
+  "name": "leve-saude-api",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "sls offline start"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^14.3.3"
+  }
+}

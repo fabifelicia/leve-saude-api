@@ -1,0 +1,20 @@
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: leve-saude-api
+
+frameworkVersion: "4"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  listarMedicos:
+    handler: functions/listarMedicos.handler
+    events:
+      - httpApi:
+          path: agenda
+          method: get
+
+
+plugins:
+  - serverless-offline
