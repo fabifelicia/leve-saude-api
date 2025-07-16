@@ -1,4 +1,3 @@
-# "service" is the name of this project. This will also be added to your AWS resource names.
 service: leve-saude-api
 
 frameworkVersion: "4"
@@ -6,10 +5,12 @@ frameworkVersion: "4"
 provider:
   name: aws
   runtime: nodejs14.x
+  region: sa-east-1
+  stage: dev
 
 functions:
-  listarMedicos:
-    handler: functions/listarMedicos.handler
+  getAgenda:
+    handler: src/functions/getAgenda.handler
     events:
       - httpApi:
           path: agenda

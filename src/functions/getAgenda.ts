@@ -1,14 +1,15 @@
-import schedule from '../utils/schedule.json' assert {type: 'json'};
+import { schedule } from '../utils/schedule' ;
+import { APIGatewayProxyHandler } from 'aws-lambda';
 
-export const handler = async (event) => {
+
+export const handler: APIGatewayProxyHandler = async () => {
 
     try {
-        const result = schedule.data;
-
+        
         return {
             statusCode: 200,
             body: JSON.stringify({
-                agenda : result
+                schedule
             })
         }
         

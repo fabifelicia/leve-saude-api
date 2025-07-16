@@ -1,2 +1,8 @@
 node_modules
-.serverless
+.serverless/
+.vscode/
+undefined/
+temp/
+coverage/
+
+jest-test-results.json
