@@ -1,11 +1,10 @@
 {
   "name": "leve-saude-api",
   "version": "1.0.0",
-  "description": "",
-  "type": "module",
+  "description": "Uma api de agendamento mécdico, utilizando AWS lambda e serverless framework",
   "scripts": {
     "test": "jest --coverage",
-    "start": "sls offline start"
+    "dev": "npx serverless offline"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.150",
