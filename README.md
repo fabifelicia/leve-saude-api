@@ -128,21 +128,6 @@ Content-Type: application/json
 npm test
 ```
 
-## ☁️ Deploy na AWS
-
-Certifique-se de que:
-
-- Você tem o AWS CLI configurado com suas credenciais (aws configure).
-- A role/políticas necessárias estão atribuídas para deploy de Lambdas.
-
-Faça o deploy com:
-
-```bash
-npx serverless deploy
-```
-
-Ao final do deploy, a URL dos endpoints será exibida no terminal.
-
 ## 📄 Licença
 
 Este projeto está licenciado sob a licença MIT.
