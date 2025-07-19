@@ -1,4 +1,5 @@
 # Leve Saúde API
+[![Merge main](https://github.com/fabifelicia/leve-saude-api/actions/workflows/pipeline.yml/badge.svg?branch=main&event=push)](https://github.com/fabifelicia/leve-saude-api/actions/workflows/pipeline.yml)
 
 API RESTful de agendamento médico, desenvolvida com **Node.js**, **TypeScript**, **AWS Lambda** e o **Serverless Framework**, conforme desafio técnico proposto pela [Leve Saúde](https://levesaude.com.br) e descrito [aqui](https://succinct-tadpole-fde.notion.site/Teste-T-cnico-13ee9214de4e479b8f6e87752a358078)
 
@@ -131,3 +132,4 @@ npm test
 ## 📄 Licença
 
 Este projeto está licenciado sob a licença MIT.
+
