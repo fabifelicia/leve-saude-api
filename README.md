@@ -15,7 +15,7 @@ Este projeto implementa dois endpoints principais:
 
 ## 🚀 Tecnologias Utilizadas
 
-- Node.js 14.x
+- Node.js 18.x
 - TypeScript
 - AWS Lambda
 - Serverless Framework v4
