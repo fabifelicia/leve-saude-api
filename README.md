@@ -46,20 +46,24 @@ npm run dev
 ```
 
 ### 4. Acesse a API
+
 O Serverless Offline será iniciado em http://localhost:3000.
 
 ### 5. Teste os endpoints
+
 ✅ GET /agendas
 
 Lista as agendas médicas disponíveis.
 
 Requisição:
+
 ```
 GET /agendas HTTP/1.1
 Host: localhost:3000
 ```
 
 Resposta:
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -84,11 +88,13 @@ Content-Type: application/json
   },
 ];
 ```
+
 📤 POST /agendamento
 
 Cria um novo agendamento de consulta.
 
 Requisição:
+
 ```
 POST /agendamento HTTP/1.1
 Host: localhost:3000
@@ -102,6 +108,7 @@ Content-Type: application/json
 ```
 
 Resposta:
+
 ```
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -109,13 +116,14 @@ Content-Type: application/json
   "mensagem": "Agendamento realizado com sucesso",
   "agendamento": {
     "paciente": "Fulano de Tal",
-    "medico": "Dr. Sicrano",    
+    "medico": "Dr. Sicrano",
     "data_horario": "2025-08-01 09:00"
   }
 }
 ```
 
 ### 6. Executando os testes
+
 ```bash
 npm test
 ```
@@ -124,10 +132,11 @@ npm test
 
 Certifique-se de que:
 
-  - Você tem o AWS CLI configurado com suas credenciais (aws configure).
-  - A role/políticas necessárias estão atribuídas para deploy de Lambdas.
+- Você tem o AWS CLI configurado com suas credenciais (aws configure).
+- A role/políticas necessárias estão atribuídas para deploy de Lambdas.
 
 Faça o deploy com:
+
 ```bash
 npx serverless deploy
 ```

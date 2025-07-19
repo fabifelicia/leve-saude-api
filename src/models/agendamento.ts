@@ -1,5 +1,5 @@
 export interface agendamento {
-  medico : string;
-  paciente :  string;
-  data_horario : string;
+  medico: string;
+  paciente: string;
+  data_horario: string;
 }

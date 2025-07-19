@@ -1,5 +1,5 @@
-import { medicos } from "../utils/mockAgenda";
-import { APIGatewayProxyHandler } from "aws-lambda";
+import { medicos } from '../utils/mockAgenda';
+import { APIGatewayProxyHandler } from 'aws-lambda';
 
 export const handler: APIGatewayProxyHandler = async () => {
   try {
@@ -13,7 +13,7 @@ export const handler: APIGatewayProxyHandler = async () => {
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: "Erro ao listar médicos",
+        message: 'Erro ao listar médicos',
         error: error,
       }),
     };

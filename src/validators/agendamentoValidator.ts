@@ -1,22 +1,22 @@
-import { agendamento } from "../models/agendamento";
+import { agendamento } from '../models/agendamento';
 
 export function validarAgendamento(
-  agendamento: agendamento | any
+  agendamento: agendamento
 ): { field: string; message: string }[] | null {
   const errors = [];
 
   const { medico, paciente, data_horario } = agendamento;
 
-  if (!medico || typeof medico !== "string") {
+  if (!medico || typeof medico !== 'string') {
     errors.push({
-      field: "medico",
-      message: "O nome do médico é obrigatório.",
+      field: 'medico',
+      message: 'O nome do médico é obrigatório.',
     });
   }
-  if (!paciente || typeof paciente !== "string") {
+  if (!paciente || typeof paciente !== 'string') {
     errors.push({
-      field: "paciente",
-      message: "O nome do paciente é obrigatório.",
+      field: 'paciente',
+      message: 'O nome do paciente é obrigatório.',
     });
   }
 
@@ -24,19 +24,15 @@ export function validarAgendamento(
 
   if (!datetimeRegex.test(data_horario)) {
     errors.push({
-      field: "data_horario",
-      message:
-        "O formato da data e horário deve ser no formato YYYY-MM-DD HH:MM.",
+      field: 'data_horario',
+      message: 'O formato da data e horário deve ser no formato YYYY-MM-DD HH:MM.',
     });
   } else {
-    const dateFormat = data_horario.replace(" ", "T");
-    if (
-      isNaN(new Date(dateFormat).getTime()) ||
-      new Date(dateFormat) < new Date()
-    ) {
+    const dateFormat = data_horario.replace(' ', 'T');
+    if (isNaN(new Date(dateFormat).getTime()) || new Date(dateFormat) < new Date()) {
       errors.push({
-        field: "data_horario",
-        message: "A data e/ou horário estão inválidos.",
+        field: 'data_horario',
+        message: 'A data e/ou horário estão inválidos.',
       });
     }
   }

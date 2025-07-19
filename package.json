@@ -4,16 +4,27 @@
   "description": "Uma api de agendamento mécdico, utilizando AWS lambda e serverless framework",
   "scripts": {
     "test": "jest --coverage",
-    "dev": "npx serverless offline"
+    "dev": "npx serverless offline",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write ."
   },
   "devDependencies": {
+    "@eslint/js": "^9.31.0",
     "@types/aws-lambda": "^8.10.150",
     "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.3",
     "jest": "^30.0.4",
+    "prettier": "^3.6.2",
     "serverless": "^4.17.1",
     "serverless-offline": "^14.3.3",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.37.0"
   }
 }
