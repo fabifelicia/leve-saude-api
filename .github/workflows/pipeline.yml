@@ -1,0 +1,33 @@
+name: Merge main
+
+on:
+  push: 
+    branches: 
+      - main
+      - master
+  pull_requests:
+    branches:
+      - main
+      - master
+
+jobs:
+ test:
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Node.jobs
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Instalar dependencias
+      run: npm ci
+
+    - name: Lint
+      run: npm run lint
+
+    - name: Testes
+      run: nppm run test
