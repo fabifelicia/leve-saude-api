@@ -1,21 +1,25 @@
 service: leve-saude-api
 
-frameworkVersion: "4"
+frameworkVersion: '4'
 
 provider:
   name: aws
   runtime: nodejs14.x
-  region: sa-east-1
-  stage: dev
 
 functions:
   getAgenda:
     handler: src/functions/getAgenda.handler
     events:
       - httpApi:
-          path: agenda
+          path: /agendas
           method: get
 
+  createAgendamento:
+    handler: src/functions/createAgendamento.handler
+    events:
+      - httpApi:
+          path: /agendamento
+          method: post
 
 plugins:
   - serverless-offline

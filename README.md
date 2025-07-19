@@ -1,76 +1,133 @@
-<!--
-title: 'Serverless Framework Node Express API on AWS'
-description: 'This template demonstrates how to develop and deploy a simple Node Express API running on AWS Lambda using the Serverless Framework.'
-layout: Doc
-framework: v4
-platform: AWS
-language: nodeJS
-priority: 1
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, Inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
--->
+# Leve Saúde API
 
-# Serverless Framework Node Express API on AWS
+API RESTful de agendamento médico, desenvolvida com **Node.js**, **TypeScript**, **AWS Lambda** e o **Serverless Framework**, conforme desafio técnico proposto pela [Leve Saúde](https://levesaude.com.br) e descrito [aqui](https://succinct-tadpole-fde.notion.site/Teste-T-cnico-13ee9214de4e479b8f6e87752a358078)
 
-This template demonstrates how to develop and deploy a simple Node Express API service running on AWS Lambda using the Serverless Framework.
+---
 
-This template configures a single function, `api`, which is responsible for handling all incoming requests using the `httpApi` event. To learn more about `httpApi` event configuration options, please refer to [httpApi event docs](https://www.serverless.com/framework/docs/providers/aws/events/http-api/). As the event is configured in a way to accept all incoming requests, the Express.js framework is responsible for routing and handling requests internally. This implementation uses the `serverless-http` package to transform the incoming event request payloads to payloads compatible with Express.js. To learn more about `serverless-http`, please refer to the [serverless-http README](https://github.com/dougmoscrop/serverless-http).
+## 📋 Descrição
 
-## Usage
+Este projeto implementa dois endpoints principais:
 
-### Deployment
+- `GET /agendas` – Lista agendas médicas disponíveis.
+- `POST /agendamento` – Realiza o agendamento de uma consulta.
 
-Install dependencies with:
+---
 
+## 🚀 Tecnologias Utilizadas
+
+- Node.js 18.x
+- TypeScript
+- AWS Lambda
+- Serverless Framework v4
+- Jest (testes)
+- Serverless Offline (desenvolvimento local)
+
+---
+
+## 📦 Instalação e Execução Local
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/fabifelicia/leve-saude-api.git
+cd leve-saude-api
 ```
+
+### 2. Instale as dependências
+
+```bash
 npm install
 ```
 
-and then deploy with:
+### 3. Execute o projeto localmente
 
-```
-serverless deploy
-```
-
-After running deploy, you should see output similar to:
-
-```
-Deploying "aws-node-express-api" to stage "dev" (us-east-1)
-
-✔ Service deployed to stack aws-node-express-api-dev (96s)
-
-endpoint: ANY - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com
-functions:
-  api: aws-node-express-api-dev-api (2.3 kB)
+```bash
+npm run dev
 ```
 
-_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [`httpApi` event docs](https://www.serverless.com/framework/docs/providers/aws/events/http-api/).
+### 4. Acesse a API
 
-### Invocation
+O Serverless Offline será iniciado em http://localhost:3000.
 
-After successful deployment, you can call the created application via HTTP:
+### 5. Teste os endpoints
 
-```
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
-```
+✅ GET /agendas
 
-Which should result in the following response:
+Lista as agendas médicas disponíveis.
 
-```json
-{ "message": "Hello from root!" }
-```
-
-### Local development
-
-The easiest way to develop and test your function is to use the `dev` command:
+Requisição:
 
 ```
-serverless dev
+GET /agendas HTTP/1.1
+Host: localhost:3000
 ```
 
-This will start a local emulator of AWS Lambda and tunnel your requests to and from AWS Lambda, allowing you to interact with your function as if it were running in the cloud.
+Resposta:
 
-Now you can invoke the function as before, but this time the function will be executed locally. Now you can develop your function locally, invoke it, and see the results immediately without having to re-deploy.
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+[
+  {
+    id: 1,
+    nome: "Dr. House",
+    especialidade: "Cardiologist",
+    horarios_disponiveis: ["2024-11-01 09:00", "2024-11-01 10:00", "2024-11-01 11:00"],
+  },
+  {
+    id: 2,
+    nome: "Dr. Strange",
+    especialidade: "Neurologist",
+    horarios_disponiveis: ["2024-11-04 14:00", "2024-11-04 15:00"],
+  },
+  {
+    id: 3,
+    nome: "Dr. Who",
+    especialidade: "Pediatrician",
+    horarios_disponiveis: ["2024-11-05 09:00", "2024-11-05 10:00", "2024-11-05 11:00"],
+  },
+];
+```
 
-When you are done developing, don't forget to run `serverless deploy` to deploy the function to the cloud.
+📤 POST /agendamento
+
+Cria um novo agendamento de consulta.
+
+Requisição:
+
+```
+POST /agendamento HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "paciente": "Fulano de Tal",
+  "medico": "Dr. Sicrano",
+  "data_horario": "2025-08-01 09:00"
+}
+```
+
+Resposta:
+
+```
+HTTP/1.1 201 Created
+Content-Type: application/json
+{
+  "mensagem": "Agendamento realizado com sucesso",
+  "agendamento": {
+    "paciente": "Fulano de Tal",
+    "medico": "Dr. Sicrano",
+    "data_horario": "2025-08-01 09:00"
+  }
+}
+```
+
+### 6. Executando os testes
+
+```bash
+npm test
+```
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT.
