@@ -7,7 +7,7 @@ describe('createAgendamento handler', () => {
       body: JSON.stringify({
         paciente: 'João',
         medico: 'Dra. Ana',
-        data_horario: '2025-07-20 10:00',
+        data_horario: '2030-07-20 10:00',
       }),
     } as APIGatewayProxyEvent;
 
@@ -19,7 +19,7 @@ describe('createAgendamento handler', () => {
       agendamento: {
         paciente: 'João',
         medico: 'Dra. Ana',
-        data_horario: '2025-07-20 10:00',
+        data_horario: '2030-07-20 10:00',
       },
     });
   });
